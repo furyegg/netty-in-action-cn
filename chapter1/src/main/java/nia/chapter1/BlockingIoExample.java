@@ -22,6 +22,8 @@ public class BlockingIoExample {
         ServerSocket serverSocket = new ServerSocket(portNumber);
         //对accept()方法的调用将被阻塞，直到一个连接建立
         Socket clientSocket = serverSocket.accept();
+		System.out.println("client connected ...");
+        
         //这些流对象都派生于该套接字的流对象
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(clientSocket.getInputStream()));
@@ -42,6 +44,11 @@ public class BlockingIoExample {
     }
 
     private String processRequest(String request){
-        return "Processed";
+        return "Processed: " + request;
     }
+	
+	public static void main(String[] args) throws IOException {
+		BlockingIoExample example = new BlockingIoExample();
+		example.serve(8090);
+	}
 }
