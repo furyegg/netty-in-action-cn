@@ -41,8 +41,7 @@ public class EchoClient {
                     @Override
                     public void initChannel(SocketChannel ch)
                         throws Exception {
-                        ch.pipeline().addLast(
-                             new EchoClientHandler());
+                        ch.pipeline().addLast(new EchoClientHandler());
                     }
                 });
             //连接到远程节点，阻塞等待直到连接完成
@@ -57,16 +56,16 @@ public class EchoClient {
 
     public static void main(String[] args)
             throws Exception {
-        if (args.length != 2) {
-            System.err.println("Usage: " + EchoClient.class.getSimpleName() +
-                    " <host> <port>"
-            );
-            return;
-        }
-
-        final String host = args[0];
-        final int port = Integer.parseInt(args[1]);
-        new EchoClient(host, port).start();
+//        if (args.length != 2) {
+//            System.err.println("Usage: " + EchoClient.class.getSimpleName() +
+//                    " <host> <port>"
+//            );
+//            return;
+//        }
+//
+//        final String host = args[0];
+//        final int port = Integer.parseInt(args[1]);
+        new EchoClient("localhost", 8090).start();
     }
 }
 

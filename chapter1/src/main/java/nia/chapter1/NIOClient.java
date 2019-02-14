@@ -5,6 +5,7 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NIOClient {
 	
@@ -17,13 +18,16 @@ public class NIOClient {
 		
 		ArrayList<String> companyDetails = new ArrayList<String>();
 		
+		Random r = new Random();
+		int id = r.nextInt(10);
+		
 		// create a ArrayList with companyName list
-		companyDetails.add("Facebook");
-		companyDetails.add("Twitter");
-		companyDetails.add("IBM");
-		companyDetails.add("Google");
-		companyDetails.add("Crunchify");
-		companyDetails.add("close");
+		companyDetails.add(id + ": Facebook");
+		companyDetails.add(id + ": Twitter");
+		companyDetails.add(id + ": IBM");
+		companyDetails.add(id + ": Google");
+		companyDetails.add(id + ": Crunchify");
+		companyDetails.add(id + ": close");
 		
 		for (String companyName : companyDetails) {
 			
